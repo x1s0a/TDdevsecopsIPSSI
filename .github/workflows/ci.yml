@@ -31,11 +31,12 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/todo-app:latest
 
       - name: Run Trivy scan
-        uses: aquasecurity/trivy-action@v0.11.1
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/todo-app:latest
           format: sarif
           output: result.sarif
+
 
 
       - name: Upload Trivy SARIF report
